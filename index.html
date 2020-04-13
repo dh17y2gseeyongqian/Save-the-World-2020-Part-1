@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+  <title> Dieting for Dunmanians</title>
+  <link rel="stylesheet" href="/static/style.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Anton|Caveat|Lobster&display=swap" rel="stylesheet">
+  <style>
+      table, th, tr, td{
+          border: 1px solid black;
+      }
+      body{
+          background-color: rgb(32, 178, 170);
+      }
+  </style>
+ </head>
+ <body>
+  <h1>Dieting for Dunmanians</h1>
+  <h5>Brought to you by Slightly Important Productions (and Health Promotion Board I guess)</h5>
+  <h2>Greetings. </h2>
+  <h3>What did you have today?</h3>
+  <br />
+  <img src="https://www.healthhub.sg/sites/assets/Assets/Programs/my-healthy-plate/section2_1.png" width="200" height="200">
+  <br />
+  <figcapture>
+      Here's a picture of what you should be eating btw
+  </figcapture>
+  <br />
+  <br />
+  <h4> Food </h4>
+  <table>
+      <tr>
+          <th>Stall 1: Chicken Rice</th>
+          <th>Stall 2: Japanese Food</th>
+          <th>Stall 3: Mixed Chinese Rice</th>
+          <th>Stall 4: Western Food</th>
+          <th>Stall 5: Vegeterian Food</th>
+      </tr>
+      <tr>
+          <td>Chicken Rice</td>
+          <td>Teriyaki Don</td>
+          <td>Fried Rice</td>
+          <td>Spaghetti with Meat Sauce</td>
+          <td>Tofu Soup</td>
+      </tr>
+      <tr>
+          <td>Roasted Duck Rice</td>
+          <td>Udon</td>
+          <td>Cai Fan</td>
+          <td>Fish and Chips</td>
+          <td>Vegetable Dumplings</td>
+      </tr>
+  </table>
+  <h4> Drinks </h4>
+  <table>
+      <tr>
+          <th>Hot Drinks</th>
+          <th>Cold Drinks</th>
+      </tr>
+      <tr>
+          <td>Hot Milo</td>
+          <td>Iced Milo</td>
+      </tr>
+      <tr>
+          <td>Warm Soy Bean Milk</td>
+          <td>Iced Soy Bean Milk</td>
+      </tr>
+      <tr>
+          <td>Black Coffee</td>
+          <td>Fresh Apple Juice</td>
+      </tr>
+      <tr>
+          <td>Hot Tea</td>
+          <td>Fresh Orange Juice</td>
+      </tr>
+  </table>
+  <br />
+  <br />
+  <form action="{{ url_for('main_page')}}" method="post">
+    <label for="">Stall Number:</label>
+    <input type ="text" name="number" placeholder=" Insert Stall Number" required/>
+    <br />
+    <br />
+    <label for="">Food Item:</label>
+    <input type ="text" name ="food" placeholder="Insert Food Item" required/>
+    <br />
+    <br />
+    <label for="">Drink Item:</label>
+    <input type ="text" name="drink" placeholder="Insert Drink Item" required/>
+    <br />
+    <br />
+    <label for="">Fruit:</label>
+    <input type ="radio" id="Yes" name="fruit" value="With fruit">
+    <label for="Yes">Yes</label>
+    <input type ="radio" id="No" name="fruit" value="Without fruit">
+    <label for="No">No</label>
+    <br />
+    <br />
+    <input type="submit" name="info" value="Give me my sustanance" />
+  </form>
+    {{ invalid }}<br />
+    {{ number }}<br />
+    {{ food }}<br />
+    {{ health }}<br />
+    {{ drink }}<br />
+    {{ sugar }}<br />
+    {{ fruit }}<br />
+    {{ message }}<br />
+
+  <form action="{{ url_for('view')}}" method="post">
+    <input type="submit" name="data" value="Show previous orders" />
+  </form>
+  {% for line in lines %}
+  <p>{{ line }}</p>
+  {% endfor %}
+ </body>
+</html>
